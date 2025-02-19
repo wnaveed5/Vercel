@@ -1,8 +1,9 @@
 import type React from "react"
 import "@/styles/globals.css"
 import { Inter } from "next/font/google"
-import { Navigation } from "@/components/navigation"
+import Navigation from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { CursorTrail } from "@/components/cursor-trail"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <CursorTrail />
       </body>
     </html>
   )

@@ -11,9 +11,10 @@ export function Footer() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/In-Line%20logo%20with%20Website-FULL%20COLOR-IXFiwVR6jRR3NID35rdncYpVY5yICM.png"
               alt="BlueSky Training & Development"
-              width={220}
-              height={55}
-              className="h-14 w-auto"
+              width={500} // Increased width
+              height={125} // Increased height
+              className="h-02 w-auto md:h-40 lg:h-48"
+              priority
             />
             <p className="text-gray-600">
               Empowering childcare providers with essential skills and strategic consulting services.
@@ -51,7 +52,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <Phone className="h-5 w-5 text-sky-600" />
-                <span className="text-gray-600">+1 (555) 123-4567</span>
+                <span className="text-gray-600">281-980-8888</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-sky-600" />
@@ -61,7 +62,7 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="h-5 w-5 text-sky-600" />
-                <span className="text-gray-600">123 Training St, City, ST 12345</span>
+                <span className="text-gray-600">9920 Hwy 90A, Suite 175D, Sugar Land, TX 77478</span>
               </li>
             </ul>
           </div>

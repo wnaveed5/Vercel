@@ -10,28 +10,28 @@ export const metadata = {
 export default function Team() {
   const team = [
     {
-      name: "Sarah Johnson",
+      name: "Consuelo Haller",
       role: "Founder & Lead Trainer",
       bio: "With over 15 years of experience in early childhood education, Sarah leads our training programs with passion and expertise.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_Wb1l1ND.jpg-GPE6Ta7ZKcDLh2NlYjG1iPYuOmxiUH.webp",
     },
     {
-      name: "Michael Chen",
+      name: "Cherly Green",
       role: "Curriculum Developer",
       bio: "Michael specializes in creating engaging and effective learning materials for childcare professionals.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_40j5jd-1024x681-landscape-30d367d51b42069f01494a6f035f58f9-.jpg-wOrDybGEtyXUnrarg77CaZWNcHkHsl.jpeg",
     },
     {
-      name: "Lisa Rodriguez",
+      name: "Beverly Olasimbo",
       role: "Training Coordinator",
       bio: "Lisa ensures smooth operation of all our training programs and provides support to our students.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_5ZQOk3w-150x150.jpg-JUteVcXtUOATZDtrmIgWqV7ajCO3h8.jpeg",
     },
     {
-      name: "David Thompson",
+      name: "Diana Araica",
       role: "Child Development Specialist",
       bio: "David brings his extensive knowledge of child psychology and development to our advanced courses.",
       image:

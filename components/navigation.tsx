@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-export function Navigation() {
+export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const links = [
@@ -21,14 +21,15 @@ export function Navigation() {
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-40">
+          {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/In-Line%20logo%20with%20Website-FULL%20COLOR-IXFiwVR6jRR3NID35rdncYpVY5yICM.png"
               alt="BlueSky Training & Development"
-              width={240}
-              height={60}
-              className="h-16 w-auto"
+              width={1000} // Increased width
+              height={250} // Increased height
+              className="h-40 w-auto md:h-52 lg:h-64"
               priority
             />
           </Link>
@@ -46,34 +47,35 @@ export function Navigation() {
           </div>
 
           {/* Mobile Navigation Toggle */}
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <button
+            className="md:hidden p-2 z-50 relative"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Menu (Fixed and Working) */}
       <div
-        className={cn(
-          "md:hidden fixed inset-x-0 bg-white transition-all duration-300 ease-in-out",
-          isOpen ? "top-20 opacity-100" : "-top-full opacity-0",
-        )}
+        className={`fixed top-0 left-0 w-full h-screen bg-white z-40 flex flex-col items-center justify-center space-y-6 transform transition-transform duration-300 ${
+          isOpen ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
-        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-gray-600 hover:text-sky-600 transition-colors py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Button asChild className="w-full">
-            <Link href="/register">Register Now</Link>
-          </Button>
-        </div>
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-gray-600 text-2xl hover:text-sky-600 transition-colors"
+            onClick={() => setIsOpen(false)} // Closes menu when clicking a link
+          >
+            {link.label}
+          </Link>
+        ))}
+        <Button asChild className="w-48 text-lg">
+          <Link href="/register" onClick={() => setIsOpen(false)}>Register Now</Link>
+        </Button>
       </div>
     </nav>
   )

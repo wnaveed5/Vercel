@@ -20,7 +20,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild>
-                  <Link href="/classes">Explore Classes</Link>
+                  <Link href="/seminars">Explore Seminars</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/contact">Contact Us</Link>

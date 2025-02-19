@@ -45,13 +45,15 @@ export default function Register() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Register for an Event</h1>
-            <p className="text-gray-600 text-lg">Take the next step in your professional development journey.</p>
+            <h1 className="text-4xl font-bold mb-4">Register for a Virtual Event</h1>
+            <p className="text-gray-600 text-lg">
+              Take the next step in your professional development journey from anywhere.
+            </p>
           </div>
 
           <Card>
             <CardHeader>
-              <CardTitle>Event Registration Form</CardTitle>
+              <CardTitle>Virtual Event Registration Form</CardTitle>
             </CardHeader>
 
             <CardContent>
@@ -84,10 +86,10 @@ export default function Register() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="event">Select Event</Label>
+                  <Label htmlFor="event">Select Virtual Event</Label>
                   <Select name="event" onValueChange={(value) => handleSelectChange("event", value)}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Choose an event" />
+                      <SelectValue placeholder="Choose a virtual event" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="cda-info-session">

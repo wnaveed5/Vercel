@@ -96,11 +96,9 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
                     <p className="text-gray-600">
-                      123 Training Street
+                      9920 Hwy 90A, Suite 175D
                       <br />
-                      Suite 456
-                      <br />
-                      City, State 12345
+                      Sugar Land, TX 77478
                     </p>
                   </div>
                 </div>
@@ -108,7 +106,7 @@ export default function Contact() {
                   <Phone className="h-6 w-6 text-sky-600 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">281-980-8888</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">

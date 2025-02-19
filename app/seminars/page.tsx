@@ -1,20 +1,20 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, Clock, MapPin } from "lucide-react"
+import { Calendar, Clock, Laptop } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
   title: "Seminars & Events",
-  description: "Join our upcoming seminars and professional development events for childcare providers.",
+  description: "Join our upcoming virtual seminars and professional development events for childcare providers.",
 }
 
 export default function Seminars() {
   const featuredEvent = {
     title: "CDA Information Session",
     description:
-      "Join us for a comprehensive information session about the Child Development Associate (CDA) credential. Learn how this nationally-recognized certification can advance your career in early childhood education. Our experienced advisors will guide you through the certification process, requirements, and answer all your questions.",
+      "Join us for a comprehensive virtual information session about the Child Development Associate (CDA) credential. Learn how this nationally-recognized certification can advance your career in early childhood education. Our experienced advisors will guide you through the certification process, requirements, and answer all your questions.",
     date: "February 24, 2025",
     time: "5:00 PM EST",
     location: "Virtual Event",
@@ -30,16 +30,16 @@ export default function Seminars() {
   const upcomingEvents = [
     {
       title: "Early Childhood Development Workshop",
-      description: "Interactive workshop exploring developmental milestones and effective teaching strategies.",
+      description: "Interactive virtual workshop exploring developmental milestones and effective teaching strategies.",
       date: "February 27, 2025",
       time: "7:00 PM EST",
-      location: "Main Training Center",
-      type: "In-Person",
+      location: "Virtual Event",
+      type: "Virtual",
     },
     {
       title: "Positive Guidance Techniques Seminar",
       description:
-        "Learn effective approaches to guide children's behavior and create a positive learning environment.",
+        "Learn effective approaches to guide children's behavior and create a positive learning environment in this online seminar.",
       date: "March 1, 2025",
       time: "10:00 AM EST",
       location: "Virtual Event",
@@ -68,7 +68,7 @@ export default function Seminars() {
                   <span>{featuredEvent.time}</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-600">
-                  <MapPin className="h-5 w-5 text-sky-600" />
+                  <Laptop className="h-5 w-5 text-sky-600" />
                   <span>{featuredEvent.location}</span>
                 </div>
               </div>
@@ -104,14 +104,14 @@ export default function Seminars() {
         {/* Upcoming Events */}
         <div className="space-y-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Upcoming Events</h2>
+            <h2 className="text-3xl font-bold mb-4">Upcoming Virtual Events</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Join our professional development events designed to enhance your skills and advance your career in early
-              childhood education.
+              Join our online professional development events designed to enhance your skills and advance your career in
+              early childhood education, all from the comfort of your home or office.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {upcomingEvents.map((event, index) => (
               <Card key={index} className="flex flex-col">
                 <CardContent className="p-6 flex-1">
@@ -130,7 +130,7 @@ export default function Seminars() {
                       <span>{event.time}</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-600">
-                      <MapPin className="h-4 w-4 text-sky-600" />
+                      <Laptop className="h-4 w-4 text-sky-600" />
                       <span>{event.location}</span>
                     </div>
                   </div>
@@ -146,7 +146,7 @@ export default function Seminars() {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-6">Want to stay updated on future events? Join our mailing list!</p>
+          <p className="text-gray-600 mb-6">Want to stay updated on future virtual events? Join our mailing list!</p>
           <Button variant="outline" asChild>
             <Link href="/contact">Subscribe to Updates</Link>
           </Button>
