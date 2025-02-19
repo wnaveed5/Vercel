@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.blueskytd.com
+
+# Sitemaps
+Sitemap: https://www.blueskytd.com/sitemap.xml
