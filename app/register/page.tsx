@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -19,25 +18,27 @@ export default function Register() {
     event: "",
     role: "",
   })
+  const [message, setMessage] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Add your registration logic here
-    console.log(formData)
+
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+
+    const data = await response.json()
+    setMessage(data.message)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData({
-      ...formData,
-      [name]: value,
-    })
+    setFormData({ ...formData, [name]: value })
   }
 
   return (
@@ -61,13 +62,7 @@ export default function Register() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      required
-                    />
+                    <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name</Label>
@@ -131,25 +126,11 @@ export default function Register() {
                   Register Now
                 </Button>
               </form>
+              {message && <p className="mt-4 text-green-500">{message}</p>}
             </CardContent>
           </Card>
-
-          <div className="mt-8 text-center text-gray-600">
-            <p>
-              By registering, you agree to our{" "}
-              <a href="/terms" className="text-sky-600 hover:underline">
-                Terms of Service
-              </a>{" "}
-              and{" "}
-              <a href="/privacy" className="text-sky-600 hover:underline">
-                Privacy Policy
-              </a>
-              .
-            </p>
-          </div>
         </div>
       </div>
     </div>
   )
 }
-
