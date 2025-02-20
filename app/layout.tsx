@@ -69,6 +69,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+
+    <Script type="application/ld+json" strategy="afterInteractive">
+    {`{
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "BlueSky TD Houston",
+      "url": "https://yourwebsite.com/houston-childcare-training",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Houston Ave",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "postalCode": "77001",
+        "addressCountry": "US"
+      },
+      "description": "Texas state-approved childcare training programs in Houston.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-555-5555",
+        "contactType": "customer service"
+      }
+    }`}
+    </Script>
+    
     <html lang="en">
       <body className={inter.className}>
         <Navigation />
@@ -146,6 +170,7 @@ export default function RootLayout({
 
 
 import './globals.css';
+import Script from 'next/script';
 import Script from 'next/script';
 
     <script type="application/ld+json">

@@ -74,6 +74,8 @@ export default function Contact() {
   }
 
   return (
+    <p><strong>Location:</strong> 123 Houston Ave, Houston, TX 77001</p>
+    <p><strong>Phone:</strong> +1-800-555-5555</p>
 <p><strong>Location:</strong> 123 Houston Ave, Houston, TX 77001</p>
 <p><strong>Phone:</strong> +1-800-555-5555</p>
     <div className="py-12">
