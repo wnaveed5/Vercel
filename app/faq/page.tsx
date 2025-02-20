@@ -1,10 +1,12 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { NextSeo } from "next-seo"
+"use client"; // Add this at the very top
+
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { NextSeo } from "next-seo";
 
 export const metadata = {
   title: "Frequently Asked Questions",
   description: "Find answers to common questions about our childcare training programs and services.",
-}
+};
 
 export default function FAQ() {
   const faqs = [
@@ -38,7 +40,7 @@ export default function FAQ() {
       answer:
         "While we don't directly place graduates, we maintain strong relationships with local childcare facilities and can provide networking opportunities and job search guidance.",
     },
-  ]
+  ];
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -51,7 +53,7 @@ export default function FAQ() {
         text: faq.answer,
       },
     })),
-  }
+  };
 
   return (
     <>
@@ -98,6 +100,5 @@ export default function FAQ() {
         </div>
       </div>
     </>
-  )
+  );
 }
-
