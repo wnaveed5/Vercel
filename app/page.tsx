@@ -22,6 +22,17 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
+              {/* Enlarged Logo */}
+              <div className="flex justify-center md:justify-start">
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_7727-768x576.jpg-DHtkuirtZQh3DsEA1iQ9UEiSX7hTLf.webp"
+                  alt="BlueSky TD Logo"
+                  width={300} // Increased size
+                  height={100} // Adjusted height
+                  className="object-contain"
+                  priority
+                />
+              </div>
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
                 Texas State-Approved <span className="text-sky-600">Childcare Training</span> in Sugar Land
               </h1>
@@ -36,10 +47,8 @@ export default function Home() {
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/contact">Contact Our Sugar Land Office</Link>
                 </Button>
-              <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
-            <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
+              </div>
+            </div>
             <div className="relative h-[500px] rounded-lg overflow-hidden">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_7727-768x576.jpg-DHtkuirtZQh3DsEA1iQ9UEiSX7hTLf.webp"
@@ -48,12 +57,9 @@ export default function Home() {
                 className="object-cover"
                 priority
               />
-            <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
-          <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
-        <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="py-16 bg-white">
@@ -63,28 +69,27 @@ export default function Home() {
             <p className="text-gray-600">
               We provide state-approved training solutions tailored to Texas childcare requirements and regulations.
             </p>
-          <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: <GraduationCap className="h-8 w-8" />, 
+                icon: <GraduationCap className="h-8 w-8" />,
                 title: "Texas State Approved",
                 description: "All courses meet Texas Workforce Commission requirements",
               },
               {
-                icon: <Users2 className="h-8 w-8" />, 
+                icon: <Users2 className="h-8 w-8" />,
                 title: "Local Support",
                 description: "Based in Sugar Land with expert Texas trainers",
               },
               {
-                icon: <Calendar className="h-8 w-8" />, 
+                icon: <Calendar className="h-8 w-8" />,
                 title: "Flexible Schedule",
                 description: "Convenient times for Houston area providers",
               },
               {
-                icon: <Award className="h-8 w-8" />, 
+                icon: <Award className="h-8 w-8" />,
                 title: "Texas CDA Program",
                 description: "Complete certification path for Texas providers",
               },
@@ -93,19 +98,15 @@ export default function Home() {
                 <CardContent className="p-6 text-center">
                   <div className="mx-auto w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 mb-4">
                     {feature.icon}
-                  <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
+                  </div>
                   <h3 className="font-semibold text-xl mb-2">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
-          <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
-        <a href="/houston-childcare-training">Texas Childcare Training in Houston</a>
-</div>
+          </div>
+        </div>
       </section>
     </>
   );
 }
-
