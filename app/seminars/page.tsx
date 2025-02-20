@@ -95,15 +95,16 @@ export default function Seminars() {
                 <Link href="/register">Register Now - Free Event</Link>
               </Button>
             </div>
-            <div className="relative h-[400px] order-first md:order-last">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CDA%20INFO%20SESSION-RbjU7BFY3TfLT4uubaoTcLoVSIcm1r.svg"
-                alt="CDA Information Session"
-                fill
-                className="object-contain"
-                loading="lazy"
-              />
-            </div>
+            <div className="relative h-[500px] md:h-[600px] w-full order-first md:order-last">
+  <Image
+    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CDA%20INFO%20SESSION-RbjU7BFY3TfLT4uubaoTcLoVSIcm1r.svg"
+    alt="CDA Information Session"
+    fill
+    className="object-cover"
+    loading="lazy"
+  />
+</div>
+
           </div>
         </div>
 
