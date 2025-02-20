@@ -1,0 +1,31 @@
+# Allow all crawlers
+User-agent: *
+Disallow:
+Sitemap: https://www.blueskytd.com/sitemap.xml
+
+# Sitemap location
+Sitemap: https://blueskytd.com/sitemap.xml
+
+# Allow crawling of Texas-specific pages
+Allow: /texas-childcare-training
+Allow: /texas-cda-certification
+Allow: /sugar-land-childcare-courses
+
+# Prevent crawling of admin or private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Crawl delay to prevent overwhelming the server
+Crawl-delay: 10
+
+# Additional crawling instructions
+Allow: /*.html$
+Allow: /*.htm$
+Allow: /*.pdf$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.png$
+Allow: /*.webp$
+
