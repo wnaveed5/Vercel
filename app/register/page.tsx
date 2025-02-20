@@ -12,16 +12,6 @@ import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import emailjs from "@emailjs/browser"
 
-export const metadata = {
-  title: "Register for Training | Start Your Professional Development",
-  description:
-    "Register for BlueSky Training & Development's professional childcare training programs and workshops. Take the next step in your childcare career.",
-  openGraph: {
-    title: "Register for Training | Start Your Professional Development",
-    description: "Register for our professional childcare training programs and workshops. Limited spots available.",
-  },
-}
-
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
