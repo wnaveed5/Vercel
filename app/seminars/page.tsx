@@ -100,8 +100,9 @@ export default function Seminars() {
     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/CDA%20INFO%20SESSION-RbjU7BFY3TfLT4uubaoTcLoVSIcm1r.svg"
     alt="CDA Information Session"
     fill
-    className="object-cover"
-    loading="lazy"
+    sizes="(max-width: 768px) 100vw, 50vw"
+    className="object-contain"
+    priority
   />
 </div>
 
