@@ -1,4 +1,4 @@
-"use client"; // Keep this since you're using interactive components
+"use client"; // Ensure this is at the top
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { NextSeo } from "next-seo";
@@ -20,6 +20,10 @@ export default function FAQ() {
       <NextSeo
         title="Frequently Asked Questions"
         description="Find answers to common questions about our childcare training programs and services."
+        openGraph={{
+          title: "Frequently Asked Questions",
+          description: "Find answers to common questions about our childcare training programs and services.",
+        }}
       />
 
       <div className="py-12">
