@@ -1,14 +1,29 @@
-"use client"
+export const metadata = {
+  title: "Contact Us | Get in Touch with Our Training Experts",
+  description:
+    "Contact BlueSky Training & Development for inquiries about our childcare training programs, professional development courses, and consulting services. We're here to help you succeed.",
+  openGraph: {
+    title: "Contact Us | Get in Touch with Our Training Experts",
+    description:
+      "Contact BlueSky Training & Development for inquiries about our childcare training programs and services.",
+  },
+}
+;("use client")
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone } from "lucide-react"
+import { useToast } from "@/components/ui/use-toast"
+import { Toaster } from "@/components/ui/toaster"
+import emailjs from "@emailjs/browser"
 
 export default function Contact() {
+  const [isLoading, setIsLoading] = useState(false)
+  const { toast } = useToast()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,10 +32,49 @@ export default function Contact() {
     message: "",
   })
 
+  useEffect(() => {
+    emailjs.init("U9nXuKC6PDnxdIjxY")
+  }, [])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Add your form submission logic here
-    console.log(formData)
+    setIsLoading(true)
+
+    try {
+      await emailjs.send("service_8k8f205", "template_uoaabcn", {
+        to_email: "hello@blueskytd.com",
+        to_name: "BlueSky Team",
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        reply_to: formData.email,
+      })
+
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you as soon as possible.",
+      })
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      })
+    } catch (error) {
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+      })
+      console.error("Contact form error:", error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -82,8 +136,8 @@ export default function Contact() {
                     className="min-h-[150px]"
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send Message
+                <Button type="submit" className="w-full" disabled={isLoading}>
+                  {isLoading ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
@@ -113,7 +167,7 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-sky-600 mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-gray-600">info@blueskytd.com</p>
+                    <p className="text-gray-600">hello@blueskytd.com</p>
                   </div>
                 </div>
               </div>
@@ -139,6 +193,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   )
 }

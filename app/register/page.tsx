@@ -1,15 +1,30 @@
-"use client"
+export const metadata = {
+  title: "Register for Training | Start Your Professional Development",
+  description:
+    "Register for BlueSky Training & Development's professional childcare training programs and workshops. Take the next step in your childcare career.",
+  openGraph: {
+    title: "Register for Training | Start Your Professional Development",
+    description: "Register for our professional childcare training programs and workshops. Limited spots available.",
+  },
+}
+;("use client")
 
 import type React from "react"
-import { useState } from "react"
+
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { useToast } from "@/components/ui/use-toast"
+import { Toaster } from "@/components/ui/toaster"
+import emailjs from "@emailjs/browser"
 
 export default function Register() {
+  const [isLoading, setIsLoading] = useState(false)
+  const { toast } = useToast()
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,27 +33,66 @@ export default function Register() {
     event: "",
     role: "",
   })
-  const [message, setMessage] = useState("")
+
+  useEffect(() => {
+    emailjs.init("U9nXuKC6PDnxdIjxY")
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
 
-    const response = await fetch("/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
+    try {
+      await emailjs.send("service_8k8f205", "template_5gyzizb", {
+        to_email: "hello@blueskytd.com",
+        to_name: "BlueSky Team",
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        phone: formData.phone,
+        event: formData.event,
+        role: formData.role,
+        message: `New registration for ${formData.event}\n\nDetails:\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nRole: ${formData.role}`,
+        reply_to: formData.email,
+      })
 
-    const data = await response.json()
-    setMessage(data.message)
+      toast({
+        title: "Registration submitted successfully!",
+        description: "We'll send you a confirmation email shortly.",
+      })
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        event: "",
+        role: "",
+      })
+    } catch (error) {
+      toast({
+        title: "Error submitting registration",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+      })
+      console.error("Registration error:", error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
   }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData({ ...formData, [name]: value })
+    setFormData({
+      ...formData,
+      [name]: value,
+    })
   }
 
   return (
@@ -62,7 +116,13 @@ export default function Register() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required />
+                    <Input
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name</Label>
@@ -82,18 +142,18 @@ export default function Register() {
 
                 <div className="space-y-2">
                   <Label htmlFor="event">Select Virtual Event</Label>
-                  <Select name="event" onValueChange={(value) => handleSelectChange("event", value)}>
+                  <Select name="event" onValueChange={(value) => handleSelectChange("event", value)} required>
                     <SelectTrigger>
                       <SelectValue placeholder="Choose a virtual event" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="cda-info-session">
+                      <SelectItem value="CDA Information Session">
                         CDA Information Session - Feb 24, 2025, 5:00 PM EST
                       </SelectItem>
-                      <SelectItem value="childhood-development">
+                      <SelectItem value="Early Childhood Development Workshop">
                         Early Childhood Development Workshop - Feb 27, 2025, 7:00 PM EST
                       </SelectItem>
-                      <SelectItem value="positive-guidance">
+                      <SelectItem value="Positive Guidance Techniques Seminar">
                         Positive Guidance Techniques Seminar - Mar 1, 2025, 10:00 AM EST
                       </SelectItem>
                     </SelectContent>
@@ -102,35 +162,50 @@ export default function Register() {
 
                 <div className="space-y-2">
                   <Label>Your Role</Label>
-                  <RadioGroup onValueChange={(value) => handleSelectChange("role", value)}>
+                  <RadioGroup onValueChange={(value) => handleSelectChange("role", value)} required>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="teacher" id="teacher" />
+                      <RadioGroupItem value="Teacher" id="teacher" />
                       <Label htmlFor="teacher">Teacher</Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="assistant" id="assistant" />
+                      <RadioGroupItem value="Teaching Assistant" id="assistant" />
                       <Label htmlFor="assistant">Teaching Assistant</Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="administrator" id="administrator" />
+                      <RadioGroupItem value="Administrator" id="administrator" />
                       <Label htmlFor="administrator">Administrator</Label>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="other" id="other" />
+                      <RadioGroupItem value="Other" id="other" />
                       <Label htmlFor="other">Other</Label>
                     </div>
                   </RadioGroup>
                 </div>
 
-                <Button type="submit" className="w-full">
-                  Register Now
+                <Button type="submit" className="w-full" disabled={isLoading}>
+                  {isLoading ? "Submitting..." : "Register Now"}
                 </Button>
               </form>
-              {message && <p className="mt-4 text-green-500">{message}</p>}
             </CardContent>
           </Card>
+
+          <div className="mt-8 text-center text-gray-600">
+            <p>
+              By registering, you agree to our{" "}
+              <a href="/terms" className="text-sky-600 hover:underline">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="/privacy" className="text-sky-600 hover:underline">
+                Privacy Policy
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </div>
+      <Toaster />
     </div>
   )
 }
+

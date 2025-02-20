@@ -11,10 +11,10 @@ export function Footer() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/In-Line%20logo%20with%20Website-FULL%20COLOR-IXFiwVR6jRR3NID35rdncYpVY5yICM.png"
               alt="BlueSky Training & Development"
-              width={500} // Increased width
-              height={125} // Increased height
+              width={500}
+              height={125}
               className="h-02 w-auto md:h-40 lg:h-48"
-              priority
+              loading="lazy"
             />
             <p className="text-gray-600">
               Empowering childcare providers with essential skills and strategic consulting services.
@@ -56,8 +56,8 @@ export function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-sky-600" />
-                <a href="mailto:info@blueskytd.com" className="text-gray-600 hover:text-sky-600">
-                  info@blueskytd.com
+                <a href="mailto:hello@blueskytd.com" className="text-gray-600 hover:text-sky-600">
+                  hello@blueskytd.com
                 </a>
               </li>
               <li className="flex items-center space-x-2">
@@ -84,7 +84,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t text-center text-gray-600">
-          <p>© {new Date().getFullYear()} BlueSky Training & Development. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} BlueSky Training & Development v19.0. All rights reserved.</p>
         </div>
       </div>
     </footer>

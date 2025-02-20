@@ -12,28 +12,28 @@ export default function Team() {
     {
       name: "Consuelo Haller",
       role: "Founder & Lead Trainer",
-      bio: "With over 15 years of experience in early childhood education, Sarah leads our training programs with passion and expertise.",
+      bio: "With over 15 years of experience in early childhood education, Consuelo leads our training programs with passion and expertise.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_Wb1l1ND.jpg-GPE6Ta7ZKcDLh2NlYjG1iPYuOmxiUH.webp",
     },
     {
       name: "Cherly Green",
       role: "Curriculum Developer",
-      bio: "Michael specializes in creating engaging and effective learning materials for childcare professionals.",
+      bio: "Cheryl specializes in creating engaging and effective learning materials for childcare professionals.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_40j5jd-1024x681-landscape-30d367d51b42069f01494a6f035f58f9-.jpg-wOrDybGEtyXUnrarg77CaZWNcHkHsl.jpeg",
     },
     {
       name: "Beverly Olasimbo",
       role: "Training Coordinator",
-      bio: "Lisa ensures smooth operation of all our training programs and provides support to our students.",
+      bio: "Beverly ensures smooth operation of all our training programs and provides support to our students.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_5ZQOk3w-150x150.jpg-JUteVcXtUOATZDtrmIgWqV7ajCO3h8.jpeg",
     },
     {
       name: "Diana Araica",
       role: "Child Development Specialist",
-      bio: "David brings his extensive knowledge of child psychology and development to our advanced courses.",
+      bio: "Diana brings his extensive knowledge of child psychology and development to our advanced courses.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_40j5jd-150x150.jpg-VPbpQVKTZxecaGBbT9Ds5gVPnvHybN.jpeg",
     },
@@ -55,7 +55,13 @@ export default function Team() {
             <Card key={index}>
               <CardContent className="p-6">
                 <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden">
-                  <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+                  <Image
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <h2 className="text-xl font-semibold mb-1">{member.name}</h2>
                 <p className="text-sky-600 mb-3">{member.role}</p>

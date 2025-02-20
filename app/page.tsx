@@ -1,8 +1,19 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { GraduationCap, Users2, Calendar, Award } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { GraduationCap, Users2, Calendar, Award } from "lucide-react";
+
+export const metadata = {
+  title: "State-Approved Texas Childcare Training | Sugar Land's Premier Provider",
+  description:
+    "Get Texas state-approved childcare training in Sugar Land. Comprehensive courses for CDA certification, professional development, and childcare provider requirements.",
+  openGraph: {
+    title: "State-Approved Texas Childcare Training | Sugar Land's Premier Provider",
+    description:
+      "Get Texas state-approved childcare training in Sugar Land. Expert-led courses for childcare professionals.",
+  },
+};
 
 export default function Home() {
   return (
@@ -12,25 +23,25 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-                Empowering Childcare Providers for a <span className="text-sky-600">Brighter Tomorrow</span>
+                Texas State-Approved <span className="text-sky-600">Childcare Training</span> in Sugar Land
               </h1>
               <p className="text-xl text-gray-600">
-                Equipping childcare providers with essential skills and offering strategic consulting services to
-                enhance the quality of early childhood education.
+                Get certified with BlueSky TD's comprehensive childcare training programs, approved by the Texas
+                Workforce Commission. Serving Sugar Land, Houston, and surrounding areas.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild>
-                  <Link href="/seminars">Explore Seminars</Link>
+                  <Link href="/texas-childcare-training">Explore Texas Programs</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">Contact Us</Link>
+                  <Link href="/contact">Contact Our Sugar Land Office</Link>
                 </Button>
               </div>
             </div>
             <div className="relative h-[500px] rounded-lg overflow-hidden">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_7727-768x576.jpg-DHtkuirtZQh3DsEA1iQ9UEiSX7hTLf.webp"
-                alt="Teacher working with children"
+                alt="Texas childcare training session in Sugar Land facility"
                 fill
                 className="object-cover"
                 priority
@@ -43,34 +54,33 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose BlueSky?</h2>
+            <h2 className="text-3xl font-bold mb-4">Why Choose BlueSky for Texas Childcare Training?</h2>
             <p className="text-gray-600">
-              We provide comprehensive training and development solutions tailored to the unique needs of childcare
-              providers.
+              We provide state-approved training solutions tailored to Texas childcare requirements and regulations.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: <GraduationCap className="h-8 w-8" />,
-                title: "Expert Training",
-                description: "Learn from experienced professionals in early childhood education",
+                icon: <GraduationCap className="h-8 w-8" />, 
+                title: "Texas State Approved",
+                description: "All courses meet Texas Workforce Commission requirements",
               },
               {
-                icon: <Users2 className="h-8 w-8" />,
-                title: "Supportive Community",
-                description: "Join a network of dedicated childcare providers",
+                icon: <Users2 className="h-8 w-8" />, 
+                title: "Local Support",
+                description: "Based in Sugar Land with expert Texas trainers",
               },
               {
-                icon: <Calendar className="h-8 w-8" />,
+                icon: <Calendar className="h-8 w-8" />, 
                 title: "Flexible Schedule",
-                description: "Choose from various course times that fit your schedule",
+                description: "Convenient times for Houston area providers",
               },
               {
-                icon: <Award className="h-8 w-8" />,
-                title: "Certified Programs",
-                description: "Earn recognized certifications in childcare",
+                icon: <Award className="h-8 w-8" />, 
+                title: "Texas CDA Program",
+                description: "Complete certification path for Texas providers",
               },
             ].map((feature, index) => (
               <Card key={index}>
@@ -86,34 +96,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="py-16 bg-sky-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold">Our Mission</h2>
-              <p className="text-gray-600">
-                BlueSky Training and Development is dedicated to empowering the childcare workforce through innovative,
-                insightful, and immersive professional development solutions. We strive to make a lasting impact on the
-                quality of childcare services.
-              </p>
-              <Button variant="outline" asChild>
-                <Link href="/about">Learn More About Us</Link>
-              </Button>
-            </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fmf_7721-1024x683-landscape-2a9a16b0d2611187b970ab11a32c2ccd-.jpg-aXnNt8aw1gxO91oVv7qfOkUpZa4lTD.jpeg"
-                alt="Interactive learning environment"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
     </>
-  )
+  );
 }
 

@@ -6,8 +6,14 @@ import Link from "next/link"
 import Image from "next/image"
 
 export const metadata = {
-  title: "Seminars & Events",
-  description: "Join our upcoming virtual seminars and professional development events for childcare providers.",
+  title: "Seminars & Events | Professional Development Opportunities",
+  description:
+    "Browse upcoming seminars, workshops, and training events for childcare professionals. Join our expert-led sessions to enhance your skills and knowledge.",
+  openGraph: {
+    title: "Seminars & Events | Professional Development Opportunities",
+    description:
+      "Browse upcoming seminars and training events for childcare professionals. Expert-led sessions to enhance your skills.",
+  },
 }
 
 export default function Seminars() {
@@ -95,7 +101,7 @@ export default function Seminars() {
                 alt="CDA Information Session"
                 fill
                 className="object-contain"
-                priority
+                loading="lazy"
               />
             </div>
           </div>

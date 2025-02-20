@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { NextSeo } from "next-seo"
 
 export const metadata = {
   title: "Frequently Asked Questions",
@@ -39,38 +40,64 @@ export default function FAQ() {
     },
   ]
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+
   return (
-    <div className="py-12">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
-            <p className="text-gray-600 text-lg">
-              Find answers to common questions about our training programs and services.
-            </p>
-          </div>
+    <>
+      <NextSeo
+        title={metadata.title}
+        description={metadata.description}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "childcare training, FAQ, professional development, childcare education",
+          },
+        ]}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <div className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+              <p className="text-gray-600 text-lg">
+                Find answers to common questions about our training programs and services.
+              </p>
+            </div>
 
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
 
-          <div className="mt-12 text-center">
-            <p className="text-gray-600">
-              Still have questions?{" "}
-              <a href="/contact" className="text-sky-600 hover:underline">
-                Contact us
-              </a>{" "}
-              for more information.
-            </p>
+            <div className="mt-12 text-center">
+              <p className="text-gray-600">
+                Still have questions?{" "}
+                <a href="/contact" className="text-sky-600 hover:underline">
+                  Contact us
+                </a>{" "}
+                for more information.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
