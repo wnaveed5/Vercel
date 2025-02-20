@@ -1,7 +1,7 @@
 "use client"; // Ensure this is at the top
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { NextSeo } from "next-seo";
+import Seo from "@/components/Seo"; // Importing the fixed Seo component
 
 export default function FAQ() {
   const faqs = [
@@ -17,14 +17,7 @@ export default function FAQ() {
 
   return (
     <>
-      <NextSeo
-        title="Frequently Asked Questions"
-        description="Find answers to common questions about our childcare training programs and services."
-        openGraph={{
-          title: "Frequently Asked Questions",
-          description: "Find answers to common questions about our childcare training programs and services.",
-        }}
-      />
+      <Seo title="Frequently Asked Questions" description="Find answers to common questions about our childcare training programs and services." />
 
       <div className="py-12">
         <div className="container mx-auto px-4">
